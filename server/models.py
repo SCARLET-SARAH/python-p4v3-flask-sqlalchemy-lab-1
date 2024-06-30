@@ -7,3 +7,8 @@ metadata = MetaData()
 db = SQLAlchemy(metadata=metadata)
 
 # Add models here
+class Earthquake(db.Model, SerializerMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    magnitude = db.Column(db.Float, nullable=False)
+    location = db.Column(db.String(100), nullable=False)
+    year = db.Column(db.Integer, nullable=False)
